@@ -40,6 +40,7 @@ publishing{
             artifactId = "mathutils"
             version = "1.0.0"
             artifact("$buildDir/outputs/aar/mylibrary-release.aar")
+            from(components["java"])
         }
     }
 
@@ -48,8 +49,8 @@ publishing{
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/shahzjanbark/MyLibraryExample")
             credentials{
-                username = "shahzjanbark"
-                password = "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"
+                username =  System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
             }
         }
     }
