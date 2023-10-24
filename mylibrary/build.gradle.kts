@@ -33,6 +33,28 @@ android {
     }
 }
 
+publishing{
+    publications{
+        register<MavenPublication>("release") {
+            groupId = "com.mylibrary"
+            artifactId = "mathutils"
+            version = "1.0.0"
+            artifact("$buildDir/outputs/aar/mylibrary-release.aar")
+        }
+    }
+
+    repositories{
+        maven{
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/shahzjanbark/MyLibraryExample")
+            credentials{
+                username = "shahzjanbark"
+                password = "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"
+            }
+        }
+    }
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
